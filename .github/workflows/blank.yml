@@ -56,9 +56,9 @@ jobs:
         script: |
           console.log(context)
           github.pulls.create({
-            owner: context.repo.owner.login,
-            repo: context.repo.name,
+            owner: context.payload.repository.owner.login,
+            repo: context.payload.repository.name,
             title: '[Auto]データ更新 ${{ steps.branch.outputs.name }}',
             head: '${{ steps.branch.outputs.name }}',
-            base: context.repo.default_branch,
+            base: context.payload.repository.default_branch,
           })
