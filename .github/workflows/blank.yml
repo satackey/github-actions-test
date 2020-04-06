@@ -38,7 +38,7 @@ jobs:
 
     - name: コミット
       run: |
-        touch testfile-${{ steps.branch.outputs.name }}
+        touch testfile-$(date)
         git add .
         git commit -m "[Auto] データを更新"
 
