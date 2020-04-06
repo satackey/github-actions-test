@@ -5,10 +5,10 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
   repository_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -26,3 +26,35 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo ${{ github.event.repository.owner.login }}
+
+    - name: ブランチを作成
+      id: branch
+      env:
+        TZ: JST-9
+      run: |
+        BRANCH_NAME="test_auto_branch/$(date "+%Y%m%d_%Hh%Mm%Ss")"
+        git checkout -b $BRANCH_NAME
+        echo "##[set-output name=name]$BRANCH_NAME"
+
+    - name: コミット
+      run: |
+        touch testfile-${{ steps.branch.outputs.name }}
+        git add .
+        git commit -m "[Auto] データを更新"
+
+    - name: プッシュ
+      # if: github.event_name == 'repository_dispatch'
+      run: git push -u origin ${{ steps.branch.outputs.name }}
+
+    - name: Pull request を作成
+      uses: actions/github-script
+      with:
+        script: |
+          console.log(context)
+          github.pulls.create({
+            owner: context.repo.owner.login,
+            repo: context.repo.name,
+            title: '[Auto]データ更新 ${{ steps.branch.outputs.name }}',
+            head: '${{ steps.branch.outputs.name }}',
+            base: context.repo.default_branch,
+          })
