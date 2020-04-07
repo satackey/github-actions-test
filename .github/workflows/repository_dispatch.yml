@@ -14,8 +14,8 @@ jobs:
           script: |
             console.log(context)
 
-            const baseBranch = context.client_payload.base_branch == null
-              ? context.payload.repository.default_branch : context.client_payload.base_branch
+            const baseBranch = context.payload.client_payload.base_branch == null
+              ? context.payload.repository.default_branch : context.payload.client_payload.base_branch
 
             core.setOutput('base-branch', baseBranch)
             cose.setOutput('head-branch', 'update_data/updatejson')
