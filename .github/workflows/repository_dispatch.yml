@@ -14,8 +14,8 @@ jobs:
           script: |
             console.log(context)
 
-            const baseBranch = context.payload.client_payload.base_branch == null
-              ? context.payload.repository.default_branch : context.payload.client_payload.base_branch
+            const baseBranch = context.payload.client_payload.base_branch === null
+              ? context.payload.repository.default_branch : `heads/refs/context.payload.client_payload.base_branch`
 
             core.setOutput('base-branch', baseBranch)
             core.setOutput('head-branch', 'update_data/updatejson')
@@ -29,7 +29,7 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v2
         with:
-          ref: heads/refs/${{ steps.metadatas.outputs.base-branch }}
+          ref: ${{ steps.metadatas.outputs.base-branch }}
 
       - run: touch "newfile-$(date "+%Y%m%d-%Hh%Mm%Ss")"
       - name: コミット
