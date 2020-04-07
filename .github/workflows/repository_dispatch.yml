@@ -1,0 +1,53 @@
+name: データをGitHubへPush
+
+on:
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: 共通のデータを出力
+        id: metadatas
+        uses: actions/github-script@0.9.0
+        with:
+          script: |
+            console.log(context)
+
+            const baseBranch = context.client_payload.base_branch == null
+              ? context.payload.repository.default_branch : context.client_payload.base_branch
+
+            core.setOutput('base-branch', baseBranch)
+            cose.setOutput('head-branch', 'update_data/updatejson')
+            core.setOutput('current-date', (new Date).toString())
+
+      - name: Gitを設定
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email actions@github.com
+
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v2
+        with:
+          ref: heads/refs/${{ steps.metadatas.outputs.base-branch }}
+
+      - run: touch "newfile-$(date "+%Y%m%d-%Hh%Mm%Ss")"
+      - name: コミット
+        run: |
+          git add .
+          git commit -m "[Auto] データを更新 ${{ steps.metadatas.outputs.current-date }}"
+
+      - name: プッシュ
+        run: git push
+
+      - name: Pull request を作成
+        uses: actions/github-script@0.9.0
+        with:
+          script: |
+            github.pulls.create({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              title: '[Auto]データ更新 ${{ steps.metadatas.outputs.current-date }}',
+              head: '${{ steps.metadatas.outputs.head-branch }}',
+              base: '${{ steps.metadatas.outputs.base-branch }}',
+            })
