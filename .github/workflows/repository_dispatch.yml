@@ -15,7 +15,7 @@ jobs:
             console.log(context)
 
             const baseBranch = typeof context.payload.client_payload.base_branch === 'string' || context.payload.client_payload.base_branch.length > 1
-              ? `heads/refs/${context.payload.client_payload.base_branch}` : context.payload.repository.default_branch
+              ? context.payload.client_payload.base_branch : context.payload.repository.default_branch.replace('refs/heads/', '')
 
             core.setOutput('base-branch', baseBranch)
             core.setOutput('head-branch', 'update_data/updatejson')
