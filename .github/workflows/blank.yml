@@ -33,4 +33,4 @@ jobs:
       run: docker login docker.pkg.github.com -u x-access-token -p ${{ github.token }}
         
     - name: Run a one-line script
-      run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image/manifests/8526a3c96e59e0e63f6aa56382881ab944b2daf3
+      run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
