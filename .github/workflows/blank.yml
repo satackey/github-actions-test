@@ -18,19 +18,59 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
+      
+    - run: docker pull satackey/action-google-drive:latest
+    - run: docker rmi satackey/action-google-drive:latest
 
-    - run: |
-        git config --global user.name github-actions
-        git config --global user.email actions@github.com
+    - run: docker login docker.pkg.github.com -u x-access-token -p ${{ github.token }}     
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: docker pull satackey/action-google-drive:latest
-        
-    - name: Run a one-line script
-      run: docker login docker.pkg.github.com -u x-access-token -p ${{ github.token }}
-        
-    - name: Run a one-line script
-      run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
