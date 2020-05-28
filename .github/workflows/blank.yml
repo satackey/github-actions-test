@@ -18,8 +18,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - run: docker pull satackey/github-actions-speed-test:latest
+    - run: docker rmi satackey/github-actions-speed-test:latest
+
+    - run: docker pull satackey/github-actions-speed-test:latest
+    - run: docker rmi satackey/github-actions-speed-test:latest
+
+    - run: docker pull satackey/github-actions-speed-test:latest
+    - run: docker rmi satackey/github-actions-speed-test:latest
+
     - run: echo ${{ github.token }} | docker login docker.pkg.github.com -u x-access-token --password-stdin
-    
       
     - run: docker pull docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
     - run: docker rmi docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
