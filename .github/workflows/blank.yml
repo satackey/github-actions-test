@@ -19,58 +19,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-      
-    - run: docker pull satackey/action-google-drive:latest
-    - run: docker rmi satackey/action-google-drive:latest
-
-    - run: docker login docker.pkg.github.com -u x-access-token -p ${{ github.token }}     
-
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker pull docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
-    - run: docker rmi docker.pkg.github.com/satackey/action-google-drive/github-action-image:66957d3772bf2e452ae3cdc5f676adea1df45eae
+    - run: docker pull docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+    - run: docker rmi docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+        
+    - run: docker pull docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+    - run: docker rmi docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+        
+    - run: docker pull docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+    - run: docker rmi docker.pkg.github.com/satackey/github-actions-test/test-packages-registry:scratch-random-of-128mb
+            
