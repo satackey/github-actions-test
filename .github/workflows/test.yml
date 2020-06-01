@@ -12,4 +12,4 @@ jobs:
         download-from: /教材
         download-to: ./
     
-    - run: ls -al /教材
+    - run: ls -al ./教材
