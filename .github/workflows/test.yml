@@ -11,3 +11,5 @@ jobs:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
         download-from: /教材
         download-to: ./
+    
+    - run: ls -al /教材
