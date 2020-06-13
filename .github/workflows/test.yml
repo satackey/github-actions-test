@@ -6,5 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "${{ toJSON(github.event) }}"
-    - run: echo "${{ github.event_path }}"
+    - run: echo '${{ toJSON(github.event) }}'
+    - run: echo '${{ github.event_path }}'
+    - run: echo "$GITHUB_REF"
