@@ -1,11 +1,9 @@
 name: CI
 
-on: [push, delete]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo '${{ toJSON(github.event) }}'
-    - run: echo '${{ github.event_path }}'
-    - run: echo "$GITHUB_REF"
+    - run: docker buildx
