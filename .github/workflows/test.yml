@@ -9,9 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: exit 1
-      id: exit1
-      continue-on-error: true
-    - run: |
-        echo outcome: ${{ steps.exit1.outcome }}
-        echo conclusion: ${{ steps.exit1.conclusion }}
+    - uses: satackey/action-docker-layer-caching@v0.0.4
+      with:
+        key: some,cache-{hash}
+
+    - run: docker pull satackey/kosen-reports
