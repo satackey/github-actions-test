@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: exit 1
+      id: exit1
       continue-on-error: true
-    - run: echo ok
+    - run: |
+        echo outcome: ${{ steps.exit1.outcome }}
+        echo conclusion: ${{ steps.exit1.conclusion }}
