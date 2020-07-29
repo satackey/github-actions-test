@@ -9,9 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: satackey/action-docker-layer-caching@v0.0.4
-      continue-on-error: true
+    - uses: actions/github-script@v2
+      id: dynamic_step
       with:
-        key: some,cache-{hash}
+        script: |
+          return {
+            run: 'echo dynamic step is working!!'
+          }
 
-    - run: docker pull satackey/kosen-reports
+    - ${{ fromJSON(steps.dynamic_step.outputs.result) }}
