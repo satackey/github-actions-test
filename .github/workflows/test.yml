@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: satackey/action-docker-layer-caching@v0.0.4
+      continue-on-error: true
       with:
         key: some,cache-{hash}
 
