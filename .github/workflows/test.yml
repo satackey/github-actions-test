@@ -13,8 +13,17 @@ jobs:
       id: dynamic_step
       with:
         script: |
-          return {
-            run: 'echo dynamic step is working!!'
-          }
+          return [
+            {
+              run: 'echo dynamic step is working!!'
+            }
+          ]
 
-    - ${{ fromJSON(steps.dynamic_step.outputs.result) }}
+    outputs:
+      dynamic_step: ${{ steps.dynamic_step.outputs.result }}
+
+  dynamic_step_job:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps: ${{ needs.build.outputs.dynamic_step }}
+    
