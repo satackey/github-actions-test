@@ -9,11 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: docker buildx version
-  
-    - name: Set up Docker Buildx
-      uses: crazy-max/ghaction-docker-buildx@v3
-      with:
-        buildx-version: latest
-        qemu-version: latest
-    - run: docker buildx version
+    - run: exit 1
+      continue-on-error: true
+    - run: echo ok
