@@ -9,6 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/cache@v2
+      with:
+        path: /home/runner/work/_temp/_github_home/.skicka.metadata.cache
+        key: skicka-metadata-${{ github.sha }}
+        restore-keys: |
+          skicka-metadata-
     - uses: satackey/action-google-drive@v1
       with:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
