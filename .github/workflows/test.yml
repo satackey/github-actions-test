@@ -15,8 +15,13 @@ jobs:
         key: skicka-metadata-${{ github.sha }}
         restore-keys: |
           skicka-metadata-
+
+    - run: ls -al /home/runner/work/_temp/_github_home/
+
     - uses: satackey/action-google-drive@v1
       with:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
         download-from: /test
         download-to: /
+
+    - run: ls -al /home/runner/work/_temp/_github_home/
