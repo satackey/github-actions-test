@@ -9,20 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v2
-      id: dynamic_step
+    - uses: satackey/action-google-drive@v1
       with:
-        script: |
-          return {
-            run: 'echo dynamic step is working!!'
-          }
-
-    outputs:
-      dynamic_step: ${{ steps.dynamic_step.outputs.result }}
-
-  dynamic_step_job:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - ${{ needs.build.outputs.dynamic_step }}
-    
+        skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
+        download-from: /test
+        download-to: /
