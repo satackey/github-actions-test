@@ -17,6 +17,7 @@ jobs:
           skicka-metadata-
 
     - run: ls -al /home/runner/work/_temp/_github_home/
+      continue-on-error: true
 
     - uses: satackey/action-google-drive@v1
       with:
@@ -25,3 +26,4 @@ jobs:
         download-to: /
 
     - run: ls -al /home/runner/work/_temp/_github_home/
+      continue-on-error: true
